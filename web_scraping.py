@@ -27,8 +27,19 @@ print(data)
 req = requests.get(url)
 print(req.headers, req.cookies)
 
-# fetching with table data
+# fetching with table data // we didnt finish this
 headers_info = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:101.0) Gecko/20100101 Firefox/101.0'}
 req = requests.get(url, headers=headers_info)
 print(req.status_code)
+
+# assigning data from a html table and plop it into a dataframe
+url = 'https://www.arraysolar.co.in/group/group_dec.php?flag=group'
+req = requests.get(url)
+print(req.status_code)
+
+# if theres multiple tables in the html page, then you'll get a list of dataframes
+with open('pagedata.html', 'wb') as fobj:
+    fobj.write(req.content)
+
+
 
